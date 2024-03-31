@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employeemanagement-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: employeemanagement
+  template:
+    metadata:
+      labels:
+        app: employeemanagement
+    spec:
+      containers:
+        - name: employeemanagement
+          image: employeemanagement:latest
+          ports:
+            - containerPort: 8090
