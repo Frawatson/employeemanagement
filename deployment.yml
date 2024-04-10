@@ -15,5 +15,6 @@ spec:
       containers:
         - name: employeemanagement
           image: employeemanagement:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8090
