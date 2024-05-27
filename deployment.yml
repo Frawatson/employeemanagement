@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employeemanagement-deployment
+  name: usermanagement-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: employeemanagement
+      app: usermanagement
   template:
     metadata:
       labels:
-        app: employeemanagement
+        app: usermanagement
     spec:
       containers:
-        - name: employeemanagement
-          image: frawatson/employeemanagement:latest
+        - name: usermanagement
+          image: frawatson/usermanagement:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8090
