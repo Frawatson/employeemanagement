@@ -6,24 +6,12 @@ pipeline {
     }
     
     environment {
-        NEXUS_CREDENTIALS=credentials('nexus-cred')
         DOCKERHUB_CREDENTIALS=credentials('docker-cred')
         KUBERNETES_CREDENTIALS=credentials('kubeconfig')
         SCANNER_HOME=tool 'sonar-scanner'
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Clone the Git repository
-                checkout([$class: 'GitSCM', 
-                          branches: [[name: '*/main']], 
-                          doGenerateSubmoduleConfigurations: false, 
-                          extensions: [], 
-                          submoduleCfg: [], 
-                          userRemoteConfigs: [[url: 'https://github.com/Frawatson/employeemanagement.git']]])
-            }
-        }
         stage ('Maven Compile') {
             steps{
                 sh "mvn compile"
