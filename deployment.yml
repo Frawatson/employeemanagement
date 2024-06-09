@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: usermanagement-deployment
+  name: usermanagement1-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: usermanagement
+      app: usermanagement1
   template:
     metadata:
       labels:
-        app: usermanagement
+        app: usermanagement1
     spec:
       containers:
-        - name: usermanagement
-          image: frawatson/usermanagement:latest
+        - name: usermanagement1
+          image: frawatson/usermanagement1:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8090
