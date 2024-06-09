@@ -15,7 +15,7 @@ spec:
       containers:
         - name: usermanagement
           image: frawatson/usermanagement:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8090
           resources:
