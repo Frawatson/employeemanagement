@@ -53,7 +53,7 @@ pipeline {
             steps{
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t usermanagement ."
+                        sh "docker build -t usermanagement1 ."
                     }
                 }
             }
@@ -62,7 +62,7 @@ pipeline {
             steps{
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "trivy image usermanagement > trivy-report.txt --reset"
+                        sh "trivy image usermanagement1 > trivy-report.txt --reset"
                     }
                 }
             }
@@ -71,8 +71,8 @@ pipeline {
             steps{
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker tag usermanagement frawatson/usermanagement:latest"
-                        sh "docker push frawatson/usermanagement:latest"
+                        sh "docker tag usermanagement1 frawatson/usermanagement:latest"
+                        sh "docker push frawatson/usermanagement1:latest"
                     }
                 }
             }
